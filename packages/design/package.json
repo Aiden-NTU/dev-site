@@ -1,0 +1,20 @@
+{
+  "name": "@ah/design",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "tokens",
+    "primitives",
+    "shells",
+    "ah.css",
+    "ah.js"
+  ],
+  "exports": {
+    "./ah.css": "./ah.css",
+    "./ah.js": "./ah.js",
+    "./tokens.css": "./tokens/tokens.css",
+    "./primitives.css": "./primitives/primitives.css",
+    "./shells/*": "./shells/*"
+  }
+}

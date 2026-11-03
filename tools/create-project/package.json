@@ -1,0 +1,12 @@
+{
+  "name": "@ah/create-project",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "create-project": "./create.mjs"
+  },
+  "scripts": {
+    "create": "node ./create.mjs"
+  }
+}

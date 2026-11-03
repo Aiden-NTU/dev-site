@@ -1,0 +1,7 @@
+id = "hello-python"
+title = "Hello Python API"
+summary = "Python Worker API with a thin HTML front using the shared design kit."
+group = "cs"
+subgroup = "programming"
+risk = "experimental"
+runtime = "python"

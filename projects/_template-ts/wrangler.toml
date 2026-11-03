@@ -1,0 +1,12 @@
+name = "ah-project-TEMPLATE_ID"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[[routes]]
+pattern = "TEMPLATE_HOST"
+custom_domain = true

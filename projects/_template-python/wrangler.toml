@@ -1,0 +1,15 @@
+name = "ah-project-TEMPLATE_ID"
+main = "src/entry.py"
+compatibility_date = "2025-04-01"
+compatibility_flags = ["python_workers"]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+# Entry uses async def on_fetch(request, env) — required by current Python Workers runtime.
+
+[[routes]]
+pattern = "TEMPLATE_HOST"
+custom_domain = true

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}} · aidenhawkins.dev</title>
+    <link rel="stylesheet" href="/ah.css" />
+  </head>
+  <body>
+    <div class="ah-shell">
+      <header class="ah-header">
+        <a class="ah-brand" href="/">aidenhawkins.dev</a>
+        <nav class="ah-nav">
+          <a href="/projects">Projects</a>
+          <a href="/learn">Learn</a>
+          <a href="/login">Log in</a>
+        </nav>
+      </header>
+      <main class="ah-main">
+        <section class="ah-hero">
+          <h1 class="ah-hero-brand">{{brand}}</h1>
+          <p class="ah-hero-lede">{{lede}}</p>
+          <div class="ah-row">
+            <a class="ah-btn ah-btn-primary" href="{{ctaHref}}">{{ctaLabel}}</a>
+            <a class="ah-btn ah-btn-ghost" href="{{secondaryHref}}">{{secondaryLabel}}</a>
+          </div>
+        </section>
+        {{body}}
+      </main>
+      <footer class="ah-footer">Course projects · sandboxed subdomains · free-tier Cloudflare</footer>
+    </div>
+    <script src="/ah.js" defer></script>
+  </body>
+</html>

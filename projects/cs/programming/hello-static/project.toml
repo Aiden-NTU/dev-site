@@ -1,0 +1,7 @@
+id = "hello-static"
+title = "Hello Static"
+summary = "Markdown notes project using DocsShell on a sandboxed subdomain."
+group = "cs"
+subgroup = "programming"
+risk = "static"
+runtime = "static"

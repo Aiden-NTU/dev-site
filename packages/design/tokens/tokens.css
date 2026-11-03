@@ -1,0 +1,100 @@
+:root {
+  --ah-font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --ah-font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
+
+  --ah-color-bg: #ffffff;
+  --ah-color-bg-subtle: #f6f7f9;
+  --ah-color-bg-muted: #eef0f3;
+  --ah-color-border: #e2e5ea;
+  --ah-color-border-strong: #c9ced6;
+  --ah-color-text: #1b1f24;
+  --ah-color-text-muted: #5b6573;
+  --ah-color-text-faint: #8a94a3;
+  --ah-color-accent: #2563eb;
+  --ah-color-accent-hover: #1d4ed8;
+  --ah-color-accent-soft: #eff4ff;
+  --ah-color-danger: #b42318;
+  --ah-color-ok: #067647;
+
+  --ah-space-1: 0.25rem;
+  --ah-space-2: 0.5rem;
+  --ah-space-3: 0.75rem;
+  --ah-space-4: 1rem;
+  --ah-space-5: 1.5rem;
+  --ah-space-6: 2rem;
+  --ah-space-8: 3rem;
+
+  --ah-radius: 4px;
+  --ah-radius-lg: 8px;
+  --ah-border: 1px solid var(--ah-color-border);
+  --ah-focus: 0 0 0 2px var(--ah-color-bg), 0 0 0 4px var(--ah-color-accent);
+  --ah-max: 72rem;
+  --ah-sidebar: 15rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--ah-font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ah-color-text);
+  background: var(--ah-color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ah-color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--ah-space-3);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 1.75rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 var(--ah-space-3);
+  color: var(--ah-color-text);
+}
+
+code,
+pre,
+.ah-mono {
+  font-family: var(--ah-font-mono);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--ah-focus);
+}

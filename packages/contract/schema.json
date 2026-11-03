@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aidenhawkins.dev/contract/project-meta.json",
+  "title": "ProjectMeta",
+  "type": "object",
+  "required": ["id", "title", "summary", "group", "subgroup", "risk", "runtime", "host", "url"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "summary": { "type": "string" },
+    "group": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "subgroup": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "risk": { "enum": ["static", "trusted", "experimental"] },
+    "runtime": { "enum": ["ts", "python", "static"] },
+    "host": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  }
+}

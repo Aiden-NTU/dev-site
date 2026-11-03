@@ -1,0 +1,20 @@
+{
+  "name": "dev-site",
+  "private": true,
+  "version": "0.1.0",
+  "description": "aidenhawkins.dev hub + sandboxed course projects",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "dev:hub": "npm run dev -w @ah/hub",
+    "deploy:hub": "npm run deploy -w @ah/hub",
+    "create-project": "npm run create -w @ah/create-project --",
+    "typecheck": "npm run typecheck -w @ah/hub"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

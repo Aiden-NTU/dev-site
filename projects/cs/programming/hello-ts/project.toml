@@ -1,0 +1,7 @@
+id = "hello-ts"
+title = "Hello TypeScript Lab"
+summary = "LabShell + KaTeX + a tiny /api/run endpoint on an isolated Worker."
+group = "cs"
+subgroup = "programming"
+risk = "experimental"
+runtime = "ts"

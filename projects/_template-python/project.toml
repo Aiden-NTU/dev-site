@@ -1,0 +1,7 @@
+id = "TEMPLATE_ID"
+title = "TEMPLATE_TITLE"
+summary = "TEMPLATE_SUMMARY"
+group = "TEMPLATE_GROUP"
+subgroup = "TEMPLATE_SUBGROUP"
+risk = "experimental"
+runtime = "python"

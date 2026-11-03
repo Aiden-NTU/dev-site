@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/ah.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  </head>
+  <body>
+    <div class="ah-shell">
+      <header class="ah-header">
+        <a class="ah-brand" href="https://aidenhawkins.dev/">aidenhawkins.dev</a>
+        <span class="ah-risk ah-risk-{{risk}}">{{risk}}</span>
+      </header>
+      <main class="ah-main ah-main-wide">
+        <div class="ah-breadcrumb">{{host}}</div>
+        <h1>{{title}}</h1>
+        <p class="ah-muted">{{summary}}</p>
+        <div class="ah-layout-lab" style="margin-top: 1.5rem">
+          <section class="ah-panel">
+            <div class="ah-panel-head"><strong>Instructions</strong></div>
+            <div class="ah-panel-body ah-md">{{instructions}}</div>
+          </section>
+          <section class="ah-panel" data-lab data-lab-endpoint="{{endpoint}}">
+            <div class="ah-panel-head">
+              <strong>Lab</strong>
+              <button type="button" class="ah-btn ah-btn-primary" data-lab-run>Run</button>
+            </div>
+            <div class="ah-panel-body">
+              <label class="ah-label" for="lab-input">Source</label>
+              <textarea id="lab-input" class="ah-textarea ah-mono" data-lab-input>{{defaultSource}}</textarea>
+            </div>
+            <pre class="ah-console" data-lab-out>Ready.</pre>
+          </section>
+        </div>
+      </main>
+      <footer class="ah-footer">Sandboxed project Worker · no hub secrets</footer>
+    </div>
+    <script src="/ah.js" defer></script>
+  </body>
+</html>
