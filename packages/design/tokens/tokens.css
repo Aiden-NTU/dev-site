@@ -3,16 +3,18 @@
   --ah-font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 
   --ah-color-bg: #ffffff;
-  --ah-color-bg-subtle: #f6f7f9;
-  --ah-color-bg-muted: #eef0f3;
-  --ah-color-border: #e2e5ea;
-  --ah-color-border-strong: #c9ced6;
-  --ah-color-text: #1b1f24;
-  --ah-color-text-muted: #5b6573;
-  --ah-color-text-faint: #8a94a3;
-  --ah-color-accent: #2563eb;
-  --ah-color-accent-hover: #1d4ed8;
-  --ah-color-accent-soft: #eff4ff;
+  --ah-color-bg-subtle: #f8f9fa;
+  --ah-color-bg-muted: #f1f2f4;
+  --ah-color-bg-hover: #eef0f3;
+  --ah-color-border: #e5e7eb;
+  --ah-color-border-strong: #d1d5db;
+  --ah-color-text: #1d1f23;
+  --ah-color-text-muted: #4b5563;
+  --ah-color-text-faint: #9ca3af;
+  --ah-color-accent: #f6821f;
+  --ah-color-accent-hover: #e06b00;
+  --ah-color-accent-soft: #fff4e8;
+  --ah-color-link: #2563eb;
   --ah-color-danger: #b42318;
   --ah-color-ok: #067647;
 
@@ -24,12 +26,12 @@
   --ah-space-6: 2rem;
   --ah-space-8: 3rem;
 
-  --ah-radius: 4px;
-  --ah-radius-lg: 8px;
+  --ah-radius: 6px;
+  --ah-radius-lg: 10px;
   --ah-border: 1px solid var(--ah-color-border);
-  --ah-focus: 0 0 0 2px var(--ah-color-bg), 0 0 0 4px var(--ah-color-accent);
+  --ah-focus: 0 0 0 2px var(--ah-color-bg), 0 0 0 4px rgba(246, 130, 31, 0.45);
   --ah-max: 72rem;
-  --ah-sidebar: 15rem;
+  --ah-nav-width: 16.5rem;
 }
 
 *,
@@ -45,15 +47,15 @@ html {
 body {
   margin: 0;
   font-family: var(--ah-font-sans);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.45;
   color: var(--ah-color-text);
   background: var(--ah-color-bg);
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--ah-color-accent);
+  color: var(--ah-color-link);
   text-decoration: none;
 }
 
@@ -69,6 +71,7 @@ h4 {
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
+  color: var(--ah-color-text);
 }
 
 h1 {
@@ -76,16 +79,15 @@ h1 {
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 h3 {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 p {
   margin: 0 0 var(--ah-space-3);
-  color: var(--ah-color-text);
 }
 
 code,
@@ -97,4 +99,11 @@ pre,
 :focus-visible {
   outline: none;
   box-shadow: var(--ah-focus);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }

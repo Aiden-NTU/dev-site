@@ -3,70 +3,71 @@
     {
       "id": "cs",
       "title": "Computer Science",
-      "summary": "Programming languages, systems, and software engineering."
+      "subgroups": [
+        { "id": "programming", "title": "Programming" }
+      ]
     },
     {
       "id": "maths",
       "title": "Maths",
-      "summary": "Foundations, discrete maths, and visual intuition."
+      "subgroups": [
+        { "id": "foundations", "title": "Foundations" }
+      ]
     },
     {
       "id": "engineering",
       "title": "Engineering",
-      "summary": "Engineering practice and tooling."
+      "subgroups": [
+        { "id": "tooling", "title": "Tooling" }
+      ]
     },
     {
       "id": "professional-skills",
       "title": "Professional Skills",
-      "summary": "Communication, teamwork, and professional development."
+      "subgroups": [
+        { "id": "comms", "title": "Communication" }
+      ]
     }
   ],
   "projects": [
     {
       "id": "hello-static",
       "title": "Hello Static",
-      "summary": "Markdown notes project using DocsShell on a sandboxed subdomain.",
+      "summary": "Static notes on a sandboxed subdomain.",
       "group": "cs",
       "subgroup": "programming",
       "risk": "static",
       "runtime": "static",
       "host": "hello-static.programming.cs.aidenhawkins.dev",
       "url": "https://hello-static.programming.cs.aidenhawkins.dev/",
-      "tags": [
-        "example",
-        "markdown"
-      ]
+      "released": "2026-11-03",
+      "tags": ["example"]
     },
     {
       "id": "hello-ts",
       "title": "Hello TypeScript Lab",
-      "summary": "LabShell + KaTeX + a tiny /api/run endpoint on an isolated Worker.",
+      "summary": "Lab page with KaTeX and a small /api/run endpoint.",
       "group": "cs",
       "subgroup": "programming",
       "risk": "experimental",
       "runtime": "ts",
       "host": "hello-ts.programming.cs.aidenhawkins.dev",
       "url": "https://hello-ts.programming.cs.aidenhawkins.dev/",
-      "tags": [
-        "example",
-        "lab",
-        "katex"
-      ]
+      "released": "2026-11-03",
+      "tags": ["example", "lab"]
     },
     {
       "id": "hello-python",
       "title": "Hello Python API",
-      "summary": "Python Worker API with a thin HTML front using the shared design kit.",
+      "summary": "Python Worker with a thin HTML front.",
       "group": "cs",
       "subgroup": "programming",
       "risk": "experimental",
       "runtime": "python",
       "host": "hello-python.programming.cs.aidenhawkins.dev",
       "url": "https://hello-python.programming.cs.aidenhawkins.dev/",
-      "tags": [
-        "example",
-        "python"
-      ]
+      "released": "2026-11-03",
+      "tags": ["example", "python"]
     }
   ]
 }

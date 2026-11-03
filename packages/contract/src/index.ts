@@ -4,20 +4,28 @@ export type RiskLevel = "static" | "trusted" | "experimental";
 
 export type ProjectRuntime = "ts" | "python" | "static";
 
+export interface SubgroupMeta {
+  id: string;
+  title: string;
+}
+
+export interface GroupMeta {
+  id: string;
+  title: string;
+  subgroups?: SubgroupMeta[];
+}
+
 export interface ProjectMeta {
-  /** DNS-safe project slug */
   id: string;
   title: string;
   summary: string;
-  /** e.g. cs */
   group: string;
-  /** e.g. programming */
   subgroup: string;
   risk: RiskLevel;
   runtime: ProjectRuntime;
-  /** Full hostname, e.g. hello-ts.programming.cs.aidenhawkins.dev */
   host: string;
   url: string;
+  released?: string;
   tags?: string[];
 }
 

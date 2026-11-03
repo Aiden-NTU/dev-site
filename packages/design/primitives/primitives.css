@@ -21,14 +21,14 @@
 }
 
 .ah-btn-primary {
-  background: var(--ah-color-accent);
-  border-color: var(--ah-color-accent);
+  background: var(--ah-color-link);
+  border-color: var(--ah-color-link);
   color: #fff;
 }
 
 .ah-btn-primary:hover {
-  background: var(--ah-color-accent-hover);
-  border-color: var(--ah-color-accent-hover);
+  background: #1d4ed8;
+  border-color: #1d4ed8;
   color: #fff;
 }
 
