@@ -9,19 +9,19 @@ export function escapeHtml(s: string) {
 }
 
 function iconHome() {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 7.2 8 2.5l5.5 4.7V13a1 1 0 0 1-1 1H9.2V9.5H6.8V14H3.5a1 1 0 0 1-1-1V7.2Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 7.2 8 2.5l5.5 4.7V13a1 1 0 0 1-1 1H9.2V9.5H6.8V14H3.5a1 1 0 0 1-1-1V7.2Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg>`;
 }
 
 function iconClock() {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M8 4.8V8l2 1.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>`;
+  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.25"/><path d="M8 5V8.2l2 1.3" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>`;
 }
 
 function iconFolder() {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4.5h3.2l1.2 1.3H13.5v6.7a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V4.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 4.5h3.1l1.2 1.2H13.5v6.8a.9.9 0 0 1-.9.9h-9a.9.9 0 0 1-.9-.9V4.5Z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></svg>`;
 }
 
 function iconBook() {
-  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3.5h4.2A2.3 2.3 0 0 1 9.5 5.8V13l-1.7-.8L6 13V5.8A2.3 2.3 0 0 0 3.7 3.5H3v9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 3.5H8.8A2.3 2.3 0 0 0 6.5 5.8V13l1.7-.8L10 13V5.8A2.3 2.3 0 0 1 12.3 3.5H13v9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  return `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.2 3.2h4.1c1.1 0 2 .9 2 2v7.2L7.5 11l-1.8 1.4V5.2c0-1.1-.9-2-2-2H3.2v8.8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8 3.2H8.7c-1.1 0-2 .9-2 2v7.2L8.5 11l1.8 1.4V5.2c0-1.1.9-2 2-2h.5v8.8" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 
 export function layout(opts: {
@@ -39,8 +39,12 @@ export function layout(opts: {
         .map((sg) => {
           const projects = sg.projects
             .map(
-              (p) =>
-                `<li><a href="${escapeHtml(p.url)}" data-recent-link data-recent-title="${escapeHtml(p.title)}" data-project-id="${escapeHtml(p.id)}">${escapeHtml(p.title)}</a></li>`,
+              (p) => `<li>
+                <a href="${escapeHtml(p.url)}" data-recent-link data-recent-title="${escapeHtml(p.title)}" data-project-id="${escapeHtml(p.id)}">
+                  ${escapeHtml(p.title)}
+                  <span class="ah-nav-sub">${escapeHtml(g.title)} / ${escapeHtml(sg.title)}</span>
+                </a>
+              </li>`,
             )
             .join("");
           return `<li class="ah-nav-item" data-nav-node data-nav-text="${escapeHtml(`${g.title} ${sg.title}`)}">
@@ -49,7 +53,7 @@ export function layout(opts: {
               <span class="ah-nav-label">${escapeHtml(sg.title)}</span>
               <span class="ah-nav-chevron">›</span>
             </button>
-            <ul class="ah-nav-children" hidden>${projects || `<li class="ah-empty" style="border:0;padding:0.35rem 0.45rem">No projects</li>`}</ul>
+            <ul class="ah-nav-children" hidden>${projects || `<li><span class="ah-nav-sub" style="display:block;padding:8px 10px 8px 28px">No projects</span></li>`}</ul>
           </li>`;
         })
         .join("");
@@ -74,10 +78,10 @@ export function layout(opts: {
 <body ${trackAttr}>
   <div class="ah-app">
     <aside class="ah-sidenav" aria-label="Site">
-      <a class="ah-sidenav-brand" href="/">aidenhawkins.dev</a>
+      <a class="ah-sidenav-brand" href="/"><span class="ah-brand-mark" aria-hidden="true"></span>aidenhawkins.dev</a>
       <div class="ah-nav-search">
-        <input id="ah-nav-filter" type="search" placeholder="Quick search…" aria-label="Filter navigation" />
-        <kbd>⌘K</kbd>
+        <input id="ah-nav-filter" type="search" placeholder="Quick search..." aria-label="Filter navigation" />
+        <kbd>Ctrl K</kbd>
       </div>
       <ul class="ah-nav-list">
         <li class="ah-nav-item">

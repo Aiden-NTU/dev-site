@@ -49,7 +49,7 @@ export async function analyticsSummary(env: Env) {
       .all<{ country: string; c: number }>(),
     env.DB.prepare(
       `SELECT path, title, country, created_at FROM page_hits
-       ORDER BY created_at DESC LIMIT 12`,
+       ORDER BY created_at DESC LIMIT 48`,
     ).all<{ path: string; title: string | null; country: string | null; created_at: number }>(),
     env.DB.prepare(
       `SELECT project_id, views FROM project_views ORDER BY views DESC LIMIT 8`,

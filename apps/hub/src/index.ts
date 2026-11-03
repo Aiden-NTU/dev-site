@@ -50,14 +50,18 @@ app.get("/", async (c) => {
     `SELECT project_id, views FROM project_views ORDER BY views DESC LIMIT 8`,
   ).all<{ project_id: string; views: number }>();
 
+  const rowIconCode = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 3.5h6.5L9 8l2.5 4.5H5L7.5 8 5 3.5Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+  const rowIconGlobe = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.4" stroke="currentColor" stroke-width="1.2"/><path d="M2.6 8h10.8M8 2.6c1.6 1.7 2.4 3.5 2.4 5.4S9.6 11.7 8 13.4C6.4 11.7 5.6 9.9 5.6 8S6.4 4.3 8 2.6Z" stroke="currentColor" stroke-width="1.2"/></svg>`;
+
   const mostViewed = (topRows.results ?? [])
     .map((row) => {
       const p = getProject(row.project_id);
       if (!p) return "";
       return `<li data-home-row="${escapeHtml(`${p.title} ${p.id} ${p.summary}`)}">
         <a href="${escapeHtml(p.url)}" data-recent-link data-recent-title="${escapeHtml(p.title)}" data-project-id="${escapeHtml(p.id)}">
-          ${escapeHtml(p.title)}
-          <span class="ah-col-meta">${row.views} views · ${escapeHtml(p.group)}/${escapeHtml(p.subgroup)}</span>
+          <span class="ah-row-icon">${rowIconCode}</span>
+          <span><span class="ah-row-title">${escapeHtml(p.title)}</span><span class="ah-row-meta">${row.views} views · ${escapeHtml(p.group)}/${escapeHtml(p.subgroup)}</span></span>
+          <span class="ah-row-chevron">›</span>
         </a>
       </li>`;
     })
@@ -68,33 +72,35 @@ app.get("/", async (c) => {
     .map(
       (p) => `<li data-home-row="${escapeHtml(`${p.title} ${p.id} ${p.summary}`)}">
         <a href="${escapeHtml(p.url)}" data-recent-link data-recent-title="${escapeHtml(p.title)}" data-project-id="${escapeHtml(p.id)}">
-          ${escapeHtml(p.title)}
-          <span class="ah-col-meta">${escapeHtml(p.released ?? "")} · ${escapeHtml(p.runtime)}</span>
+          <span class="ah-row-icon">${rowIconGlobe}</span>
+          <span><span class="ah-row-title">${escapeHtml(p.title)}</span><span class="ah-row-meta">${escapeHtml(p.released ?? "")} · ${escapeHtml(p.runtime)}</span></span>
+          <span class="ah-row-chevron">›</span>
         </a>
       </li>`,
     )
     .join("");
 
   const body = `
-    <h1 class="ah-home-title">aidenhawkins.dev</h1>
+    <h1 class="ah-home-title">What are we building?</h1>
     <div class="ah-hero-search">
-      <input id="ah-hero-search" type="search" placeholder="Search projects…" aria-label="Search projects" />
-      <kbd>⌘K</kbd>
+      <input id="ah-hero-search" type="search" placeholder="Search" aria-label="Search projects" />
+      <kbd>Ctrl K</kbd>
     </div>
     <div class="ah-columns">
       <section>
-        <h2 class="ah-col-title">Most viewed</h2>
-        ${mostViewed ? `<ul class="ah-col-list">${mostViewed}</ul>` : `<div class="ah-empty">Views will appear as people open projects.</div>`}
+        <div class="ah-col-head">Most viewed ${mostViewed ? `<span class="ah-col-count">${(topRows.results ?? []).length}</span>` : ""}</div>
+        ${mostViewed ? `<ul class="ah-col-list">${mostViewed}</ul>` : `<div class="ah-empty">Views show up as projects get opened.</div>`}
       </section>
       <section>
-        <h2 class="ah-col-title">Recently released</h2>
+        <div class="ah-col-head">Recently released <span class="ah-col-count">${released.length}</span></div>
         <ul class="ah-col-list">${releasedHtml}</ul>
       </section>
       <section>
-        <h2 class="ah-col-title">Your recents</h2>
+        <div class="ah-col-head">Recents</div>
         <div id="ah-home-recents"></div>
       </section>
     </div>
+    <div class="ah-section-head"><h2>Analytics</h2></div>
     <div class="ah-analytics">
       <section class="ah-card">
         <div class="ah-card-head"><h2>Visitors</h2></div>
@@ -105,7 +111,6 @@ app.get("/", async (c) => {
         <div class="ah-card-body" id="ah-traffic"></div>
       </section>
     </div>`;
-
   return html(
     layout({
       title: "Home",

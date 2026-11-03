@@ -11,10 +11,9 @@ function read(rel) {
   return readFileSync(join(design, rel), "utf8");
 }
 
-// Bundle CSS without @import so Workers assets serve one file.
 const css = [
-  '/* IBM Plex via Google Fonts */',
-  '@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap");',
+  '/* Inter + mono */',
+  '@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap");',
   read("tokens/tokens.css"),
   read("primitives/primitives.css"),
   read("shells/shells.css"),
@@ -22,6 +21,9 @@ const css = [
 
 writeFileSync(join(pub, "ah.css"), css);
 copyFileSync(join(design, "ah.js"), join(pub, "ah.js"));
+
+const world = join(design, "world-map.svg");
+if (existsSync(world)) copyFileSync(world, join(pub, "world-map.svg"));
 
 const learnSrc = join(root, "content/learn");
 const learnDst = join(pub, "learn-content");
